@@ -1,0 +1,146 @@
+<div class="container">
+    <div class="top">
+        <dx-button class="button-back" routerLink="/" text="Назад"></dx-button>
+        <div class="title">Создание задачи</div>
+    </div>
+    <div class="content">
+        <div class="form-task" [formGroup]="myForm">
+            <div class="block">
+                <div class="legend">
+                    Приоритет
+                </div>
+                <dx-select-box
+                        [items]="['Низкий', 'Средний', 'Высокий']"
+                        placeholder="Выберите значение..."
+                        formControlName="priority">
+                </dx-select-box>
+            </div>
+            <div class="block">
+                <div class="legend">
+                    Задача
+                </div>
+                <dx-text-box placeholder="Введите значение..."
+                             formControlName="text">
+
+                </dx-text-box>
+            </div>
+            <div class="data-block">
+                <div class="block">
+                    <div class="legend">
+                        Дата начала
+                    </div>
+                    <dx-date-box placeholder="Выберите значение..."
+                                 formControlName="startDate">
+
+                    </dx-date-box>
+                </div>
+                <div class="block">
+                    <div class="legend">
+                        Дата завершения
+                    </div>
+                    <dx-date-box placeholder="Выберите значение..."
+                                 formControlName="endDate">
+                    </dx-date-box>
+                </div>
+            </div>
+            <div class="block">
+                <div class="legend">
+                    Статус
+                </div>
+                <dx-select-box
+                        [items]="['Отменена', 'Выполняется', 'Завершена']"
+                        placeholder="Выберите значение..."
+                        formControlName="state">
+                </dx-select-box>
+            </div>
+            <div class="block">
+                <div class="legend">
+                    Участники
+                </div>
+                <div class="block-box">
+                    <div class="block-top">
+                        <div class="title">
+                            Список участников события
+                        </div>
+                        <div class="addUser">
+                            <dx-button icon="add"></dx-button>
+                        </div>
+                    </div>
+                    <div class="block-list">
+                        <dx-list
+                                [dataSource]="users"
+                                 itemTemplate="user-item"
+                                 [selectionMode]="'multiple'"
+                                 [(selectedItemKeys)]="selectUsers"
+                                 (onItemClick)="test($event)">
+
+                            <div *dxTemplate="let user of 'user-item'" >
+                                <div class="user" >
+                                    <div class="left">
+                                        <div class="icon-card"></div>
+                                        {{user.surname}} {{user.name}}
+                                    </div>
+                                    <div class="right">
+                                        <dx-button icon="edit" (click)="editParticipant(user)"></dx-button>
+                                        <dx-button icon="trash"></dx-button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </dx-list>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <dx-popup
+            [width]="450"
+            [height]="450"
+            [showTitle]="true"
+            [title]="'Редактирование участника'"
+            [closeOnOutsideClick]="true"
+            [(visible)]="popupVisible"
+    >
+        <div *dxTemplate="let data of 'content'">
+            <div class="dx-wrapper">
+                <div class="block">
+                    <div class="legend">
+                        Фамилия
+                    </div>
+                    <dx-text-box placeholder="Введите значение..."
+                                 value="{{currentUser.surname}}">
+                    </dx-text-box>
+                </div>
+                <div class="block">
+                    <div class="legend">
+                        Имя
+                    </div>
+                    <dx-text-box placeholder="Введите значение..."
+                                 value="{{currentUser.name}}">
+
+                    </dx-text-box>
+                </div>
+                <div class="block">
+                    <div class="legend">
+                        Отчество
+                    </div>
+                    <dx-text-box placeholder="Введите значение..."
+                                 value="{{currentUser.patronymic}}">
+
+                    </dx-text-box>
+                </div>
+                <div class="block-footer">
+                    <dx-button>Отменить</dx-button>
+                    <dx-button>Сохранить</dx-button>
+                </div>
+            </div>
+        </div>
+    </dx-popup>
+    <footer>
+        <dx-button routerLink="/">Отменить</dx-button>
+        <dx-button [disabled]="myForm.invalid" >Сохранить</dx-button>
+<!--        <dx-button [disabled]="checkForm()" >Сохранить</dx-button>-->
+    </footer>
+</div>
+

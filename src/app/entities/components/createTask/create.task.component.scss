@@ -1,0 +1,282 @@
+
+.container {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .top {
+    width: 100%;
+    height: 60px;
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+
+    dx-button {
+      padding: 0 0 0 15px;
+
+      background: url("./images/back.svg") left center no-repeat;
+      border: none;
+
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: gainsboro;
+      }
+    }
+
+    .button-back {
+      margin: 0 0 0 50px;
+
+      display: flex;
+    }
+
+    .title {
+      margin: 0 100px 0 0;
+
+      display: flex;
+
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+
+
+  .content {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 80;
+
+    background-color: #D9D9D9;
+
+    .form-task {
+      margin: 30px 0;
+
+      width: 35%;
+
+      display: flex;
+      flex-direction: column;
+
+      .legend {
+        margin: 0 0 0 4px;
+
+        font-size: 14px;
+        color: gray;
+      }
+
+      .block {
+        margin: 10px 0 0 0;
+
+        width: 100%;
+
+        .block-box {
+          padding: 5px;
+
+          width: 100%;
+
+          display: flex;
+          flex-direction: column;
+
+          border: 1px solid gray;
+          border-radius: 2px;
+          background-color: white;
+
+          .block-top {
+            width: 100%;
+            height: 40px;
+
+            display: flex;
+            flex-direction: row;
+
+            .title {
+              display: flex;
+              flex-grow: 1;
+              justify-content: center;
+              align-items: center;
+
+              border-bottom: 1px solid gray;
+
+              font-weight: 500;
+              font-size: 16px;
+            }
+
+            .addUser {
+              width: 40px;
+
+              display: flex;
+
+              dx-button {
+                border: none;
+              }
+            }
+          }
+
+          .block-list {
+            margin: 10px 0 0 0;
+
+            height: 170px;
+
+            overflow: auto;
+
+            .user {
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              width: 100%;
+
+              .left {
+                display: flex;
+
+                .icon-card {
+
+                  display: flex;
+
+                }
+              }
+
+              .right {
+                display: flex;
+
+                dx-button {
+                  border: none;
+                  background-color: inherit;
+
+                  &:hover {
+                    background-color: inherit;
+                  }
+                }
+              }
+
+            }
+
+          }
+        }
+      }
+
+      .data-block {
+        margin: 20px 0 0 0;
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .block {
+          width: 40%;
+
+          display: flex;
+          flex-direction: column;
+
+        }
+      }
+    }
+  }
+
+
+  footer {
+    height: 60px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    .dx-button {
+      height: 25px;
+
+      margin: 0 10px;
+      padding: 2px 10px 0 10px;
+
+      border: 2px solid black;
+
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-align: center;
+
+      &:hover {
+        color: white;
+        background-color: #162EAE;
+      }
+    }
+  }
+}
+
+
+.dx-wrapper {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .block{
+    display: flex;
+
+    flex-direction: column;
+
+    .legend{
+      margin: 0 0 0 4px;
+
+      display: flex;
+
+      font-size: 14px;
+      color: gray;
+    }
+    dx-text-box{
+      padding: 5px;
+
+      background-color: #efefef;
+      border: none;
+      border-bottom: 2px solid gray;
+      border-radius: unset;
+
+      font-weight: 600;
+    }
+
+  }
+
+  .block-footer{
+    height: 30px;
+
+    border-top: 1px solid gray ;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    dx-button{
+      height: 20px;
+
+      border: none;
+
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: #162EAE;
+    }
+  }
+}
+
+/* ::ng-deep {
+   .dx-popup-wrapper > .dx-overlay-content {
+     background-color: white;
+   }
+ }*/

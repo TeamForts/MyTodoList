@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="main">
+        <dx-data-grid [dataSource]="dataSource"
+                      [showBorders]="true"
+                      [height]="620"
+        >
+            <dxo-paging [pageSize]="13">
+            </dxo-paging>
+            <dxo-editing
+                    [allowUpdating]="true"
+                    [allowAdding]="false"
+                    [allowDeleting]="true"
+                    [useIcons]="true"
+                    mode="row"> <!-- 'batch' | 'cell' | 'form' | 'popup' -->
+            </dxo-editing>
+
+            <dxo-search-panel
+                    [visible] = "true"
+                    [width]="240"
+                    placeholder="Search..">
+            </dxo-search-panel>
+            <dxo-filter-row [visible]="true"></dxo-filter-row>
+            <dxi-column dataField="number" caption="№"
+                        [allowFiltering]="false"
+                        [allowEditing]="false"
+                        [width]="50">
+            </dxi-column>
+
+            <dxi-column dataField="priority" caption="Приоритет"
+                        [allowEditing]="false">
+
+            </dxi-column>
+            <dxi-column dataField="text" caption="Задача"
+                        [allowEditing]="true">></dxi-column>
+            <dxi-column dataField="startDate" caption="Дата начала" dataType="date"
+                        [allowEditing]="false">
+
+            </dxi-column>
+            <dxi-column dataField="endDate" caption="Дата завершения" dataType="date"
+                        [allowEditing]="false">
+
+            </dxi-column>
+            <dxi-column dataField="status" caption="Статус"
+                        [allowEditing]="false">
+
+            </dxi-column>
+            <dxi-column dataField="participants" caption="Участники"
+                        [allowEditing]="false">
+
+            </dxi-column>
+         <!--
+         <dxi-column caption="Действия" cellTemplate="temp">
+                <div *dxTemplate="let data of 'temp'">
+                    <dx-button icon="edit"></dx-button>
+                    <dx-button icon="trash"></dx-button>
+                </div>
+            </dxi-column>
+        !-->
+        </dx-data-grid>
+
+    </div>
+    <footer>
+        <dx-button  routerLink="/createTask">Добавить задачу</dx-button>
+    </footer>
+</div>
